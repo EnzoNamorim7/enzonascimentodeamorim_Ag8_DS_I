@@ -25,6 +25,6 @@ for opiniao in dados_da_pesquisa:
 
 # Saída limpa e direta
 print("Soma total das respostas:")
-print(f"EXCELENTE: {excelente}")
-print(f"BOM: {bom}")
-print(f"RUIM: {ruim}")
+print(f"EXCELENTE: {1}")
+print(f"BOM: {2}")
+print(f"RUIM: {3}")
