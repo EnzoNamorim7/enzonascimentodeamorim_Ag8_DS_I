@@ -1,6 +1,6 @@
 # Pesquisa de Satisfação - TudoWeb
 
-# Constante para facilitar os testes (mude para 50 na versão final)
+# Constante para facilitar os testes 
 TOTAL_ENTREVISTADOS = 10
 
 # Inicialização dos contadores
