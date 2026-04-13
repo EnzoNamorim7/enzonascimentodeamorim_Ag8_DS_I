@@ -1,23 +1,24 @@
-import random
+# Inicializando os contadores (as variáveis que vão guardar os números)
+excelente = 0
+bom = 0
+ruim = 0
 
-# 1. Definimos os dados (isso aqui simula o que seria digitado)
-votos = ['1', '2', '3', '1', '1', '2', '3', '1', '2', '3']
+# O loop vai rodar 10 vezes pedindo os dados
+for i in range(10):
+    print(f"Entrevistado {i+1}")
+    nome = input("Nome: ")
+    idade = input("Idade: ")
+    voto = input("Opinião (1-Excelente, 2-Bom, 3-Ruim): ")
 
-# 2. OS CONTADORES (Eles começam em zero)
-total_excelente = 0
-total_bom = 0
-total_ruim = 0
+    # AQUI É O CONTADOR: Ele não printa nada, ele SOMA na memória
+    if voto == '1':
+        excelente += 1
+    elif voto == '3':
+        ruim += 1
+    elif voto == '2':
+        bom += 1
 
-# 3. A LÓGICA DE CONTAGEM (O 'for' passa por cada voto e o 'if' soma no contador)
-for resposta in votos:
-    if resposta == '1':
-        total_excelente += 1  # Aqui o contador de excelente SOBE 1
-    elif resposta == '2':
-        total_bom += 1        # Aqui o contador de bom SOBE 1
-    elif resposta == '3':
-        total_ruim += 1       # Aqui o contador de ruim SOBE 1
-
-# 4. EXIBIÇÃO DO TOTAL ACUMULADO
-print("Soma total das respostas:")
-print(f"Total Excelente: {total_excelente}")
-print(f"Total Ruim: {total_ruim}")
+# FINAL: O programa cospe o que acumulou nas variáveis
+print("\nSoma total das respostas:")
+print(f"EXCELENTE: {excelente}")
+print(f"RUIM: {ruim}")
