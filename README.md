@@ -1,42 +1,41 @@
-# Pesquisa de Satisfação - TudoWeb
+import random
 
-# Constante para facilitar os testes (mude para 50 na versão final)
+# Constante para testes
 TOTAL_ENTREVISTADOS = 10
 
-# Inicialização dos contadores
 qtd_excelente = 0
 qtd_bom = 0
 qtd_ruim = 0
 
-print("--- Início da Pesquisa de Satisfação: TudoWeb ---")
+print(f"--- Simulando Pesquisa TudoWeb: {TOTAL_ENTREVISTADOS} Entrevistados ---")
 
 for i in range(1, TOTAL_ENTREVISTADOS + 1):
-    print(f"\nEntrevistado nº {i}")
+    # Simulando a entrada de dados
+    nome = f"Candidato {i}"
+    idade = random.randint(18, 70)
     
-    # Coleta de dados básicos
-    nome = input("Digite o nome: ")
-    idade = input("Digite a idade: ")
+    # Gera uma opinião aleatória entre 1, 2 e 3
+    opiniao = str(random.randint(1, 3))
     
-    # Coleta e validação da opinião
-    print("Opinião sobre o atendimento:")
-    print("1: EXCELENTE | 2: BOM | 3: RUIM")
-    opiniao = input("Sua resposta: ")
-
-    # Estrutura de decisão para contabilizar os votos
+    # Mapeamento para exibição
+    status = ""
     if opiniao == '1':
         qtd_excelente += 1
+        status = "EXCELENTE"
     elif opiniao == '2':
         qtd_bom += 1
+        status = "BOM"
     elif opiniao == '3':
         qtd_ruim += 1
-    else:
-        print("Opção inválida! Este voto não será contabilizado.")
+        status = "RUIM"
 
-# Exibição dos resultados finais
+    # Exibe o que foi "coletado" para conferência
+    print(f"Entrevistado: {nome} | Idade: {idade} | Opinião: {status}")
+
 print("\n" + "="*30)
-print("      RESULTADO DA PESQUISA")
+print("      RESULTADO FINAL")
 print("="*30)
-print(f"Quantidade de respostas EXCELENTE: {qtd_excelente}")
-print(f"Quantidade de respostas RUIM:      {qtd_ruim}")
-print(f"Total de participantes:            {TOTAL_ENTREVISTADOS}")
+print(f"EXCELENTE: {qtd_excelente}")
+print(f"RUIM:      {qtd_ruim}")
+print(f"BOM:       {qtd_bom}")
 print("="*30)
