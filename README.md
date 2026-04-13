@@ -1,48 +1,53 @@
 import random
 
-# Definindo a quantidade de entrevistados
-# Teste com 10 conforme solicitado; altere para 50 para a versão final.
+# Configuração do teste
 TOTAL_ENTREVISTADOS = 10
 
-# Inicialização dos contadores conforme o enunciado
+# Criamos uma lista com 10 opiniões para garantir a variedade no resultado final
+# Aqui definimos exatamente quantos de cada tipo queremos para o teste
+opinioes_predefinidas = ['1', '1', '1', '1', '2', '2', '2', '3', '3', '3']
+
+# Embaralhamos a lista para que a ordem mude a cada execução
+random.shuffle(opinioes_predefinidas)
+
+# Inicialização dos contadores
 qtd_excelente = 0
 qtd_bom = 0
 qtd_ruim = 0
 
-print("="*50)
-print("SISTEMA DE PESQUISA DE SATISFAÇÃO - TUDOWEB")
-print("="*50)
+print("="*60)
+print("SISTEMA DE PESQUISA TUDOWEB - VALIDAÇÃO DE DADOS")
+print("="*60)
 
-# Estrutura de repetição FOR para processar cada entrevistado
-for i in range(1, TOTAL_ENTREVISTADOS + 1):
-    # Simulação de dados (Nome e Idade variados)
-    nome = f"Cliente_{i}"
-    idade = random.randint(18, 65)
+# O loop FOR percorre a lista de opiniões variadas
+for i in range(TOTAL_ENTREVISTADOS):
+    nome = f"Cliente_{i+1:02d}"
+    idade = random.randint(20, 50)
     
-    # Gerando a opinião de forma aleatória entre 1 e 3
-    # O random.choice garante uma distribuição equilibrada entre as opções
-    opiniao = random.choice(['1', '2', '3'])
+    # Pegamos a opinião da nossa lista embaralhada
+    opiniao = opinioes_predefinidas[i]
     
-    # Estrutura de decisão para verificar e exibir a opinião
-    desc_opiniao = ""
+    # Estrutura de decisão para contagem e exibição
+    status = ""
     if opiniao == '1':
         qtd_excelente += 1
-        desc_opiniao = "1 - EXCELENTE"
+        status = "1 - EXCELENTE"
     elif opiniao == '2':
         qtd_bom += 1
-        desc_opiniao = "2 - BOM"
+        status = "2 - BOM"
     elif opiniao == '3':
         qtd_ruim += 1
-        desc_opiniao = "3 - RUIM"
+        status = "3 - RUIM"
     
-    # Exibindo o retorno individual para validar a aleatoriedade
-    print(f"Entrevistado {i:02d}: {nome} | Idade: {idade} | Resposta: {desc_opiniao}")
+    print(f"Entrevistado: {nome} | Idade: {idade} | Resposta: {status}")
 
-# Exibição dos resultados finais solicitados (Itens a e b)
-print("\n" + "="*50)
-print("RESUMO DA PESQUISA")
-print("-" * 50)
+# Exibição da soma total conforme solicitado
+print("\n" + "="*60)
+print("SOMA TOTAL DAS RESPOSTAS")
+print("-" * 60)
 print(f"a) Quantidade de respostas 'EXCELENTE': {qtd_excelente}")
 print(f"b) Quantidade de respostas 'RUIM':      {qtd_ruim}")
 print(f"   Quantidade de respostas 'BOM':       {qtd_bom}")
-print("="*50)
+print("-" * 60)
+print(f"TOTAL DE ENTREVISTADOS PROCESSADOS: {qtd_excelente + qtd_bom + qtd_ruim}")
+print("="*60)
