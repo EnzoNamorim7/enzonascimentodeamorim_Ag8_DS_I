@@ -1,26 +1,23 @@
 import random
 
-# Simulação para 10 entrevistados (conforme solicitado para o teste)
-# 1 = Excelente, 2 = Bom, 3 = Ruim
+# 1. Definimos os dados (isso aqui simula o que seria digitado)
 votos = ['1', '2', '3', '1', '1', '2', '3', '1', '2', '3']
 
-# Contadores iniciados em zero
-excelente = 0
-bom = 0
-ruim = 0
+# 2. OS CONTADORES (Eles começam em zero)
+total_excelente = 0
+total_bom = 0
+total_ruim = 0
 
-# Estrutura de repetição FOR
-for opiniao in votos:
-    # Estrutura de decisão para contagem
-    if opiniao == '1':
-        excelente += 1
-    elif opiniao == '2':
-        bom += 1
-    elif opiniao == '3':
-        ruim += 1
+# 3. A LÓGICA DE CONTAGEM (O 'for' passa por cada voto e o 'if' soma no contador)
+for resposta in votos:
+    if resposta == '1':
+        total_excelente += 1  # Aqui o contador de excelente SOBE 1
+    elif resposta == '2':
+        total_bom += 1        # Aqui o contador de bom SOBE 1
+    elif resposta == '3':
+        total_ruim += 1       # Aqui o contador de ruim SOBE 1
 
-# Saída exatamente como você pediu
+# 4. EXIBIÇÃO DO TOTAL ACUMULADO
 print("Soma total das respostas:")
-print(excelente)
-print(bom)
-print(ruim)
+print(f"Total Excelente: {total_excelente}")
+print(f"Total Ruim: {total_ruim}")
